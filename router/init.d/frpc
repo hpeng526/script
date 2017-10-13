@@ -24,3 +24,8 @@ restart () {
     sleep 2
     start
 }
+
+boot() {
+    sleep 30
+    start
+}
