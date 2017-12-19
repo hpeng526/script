@@ -1,7 +1,7 @@
 ``` shell
 timedatectl set-ntp true
 fdisk /dev/sda
-mkswap /dev/sda1
+mkswap /dev/sda1 #2097152+2048=2099200
 mkfs.ext4 /dev/sda2
 mount /dev/sda2 /mnt
 
@@ -55,4 +55,18 @@ vim .xinitrc # exec gnome-session
 # chinese
 pacman -S wqy-microhei
 fc-cache -fv
+
+# zsh
+pacman -S zsh git curl
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# yaourt
+vim /etc/pacman.conf
+
+[archlinux]
+Server=https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+
+pacman -Sy
+pacman -S yaourt fakeroot archlinuxcn-keyring
+
 ```
