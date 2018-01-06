@@ -17,6 +17,7 @@ git remote set-url origin https://github.com/Homebrew/brew.git
 1. golang
 1. tmux
 1. screenfetch
+1. thefuck
 
 ### cask
 
@@ -40,6 +41,7 @@ git remote set-url origin https://github.com/caskroom/homebrew-cask.git
 1. free-download-manager
 1. inna
 1. snipaste
+1. dropbox
 
 ## github
 
