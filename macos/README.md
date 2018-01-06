@@ -43,6 +43,7 @@ git remote set-url origin https://github.com/caskroom/homebrew-cask.git
 1. snipaste
 1. dropbox
 1. teamviewer
+1. neteasemusic
 
 ## github
 
