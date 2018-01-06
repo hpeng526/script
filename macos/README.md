@@ -44,10 +44,11 @@ git remote set-url origin https://github.com/caskroom/homebrew-cask.git
 1. dropbox
 1. teamviewer
 1. neteasemusic
+1. remote-play
 
 ## github
 
 1. https://github.com/robbyrussell/oh-my-zsh.git
 1. https://github.com/powerline/fonts.git
-1. https://github.com/bsdelf/Up-Down.git
+1. https://github.com/hpeng526/Up-Down.git
 1. https://github.com/acgotaku/BaiduExporter.git
