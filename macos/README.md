@@ -45,6 +45,7 @@ git remote set-url origin https://github.com/caskroom/homebrew-cask.git
 1. teamviewer
 1. neteasemusic
 1. remote-play
+1. keka
 
 ## github
 
