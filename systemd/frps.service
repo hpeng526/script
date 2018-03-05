@@ -1,0 +1,12 @@
+[Unit]
+Description=frps daemon
+After=syslog.target network.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/frps -c /etc/frp/frps.ini
+ExecStop=/usr/bin/kill $MAINPID
+
+[Install]
+WantedBy=multi-user.target
