@@ -1,3 +1,8 @@
+## use manjaro 
+
+[manjaro](https://manjaro.org/)
+
+
 ``` shell
 timedatectl set-ntp true
 fdisk /dev/sda
