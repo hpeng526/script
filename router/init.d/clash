@@ -1,0 +1,44 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+
+PROCESS=/mnt/sda1/clash/clash
+CONF=/mnt/sda1/clash
+LOG=/mnt/sda1/clash/clash.log
+REDIRPORT=
+
+start() {
+    uci set dhcp.@dnsmasq[0].port=5555
+    uci commit dhcp
+    iptables -t nat -A PREROUTING -p tcp --dport 22 -j ACCEPT
+    iptables -t nat -A PREROUTING -s 192.168.0.0/16 -j ACCEPT
+    iptables -t nat -A PREROUTING -s 127.0.0.0/16 -j ACCEPT
+    iptables -t nat -A PREROUTING -p tcp -j REDIRECT --to-ports $REDIRPORT
+    SERVICE_DAEMONIZE=1 \
+        service_start $PROCESS -d $CONF >> $LOG
+    return 0
+}
+
+stop() {
+    if [ -n "`pidof clash`" ]; then
+        service_stop $PROCESS
+    fi
+    uci delete dhcp.@dnsmasq[0].port=5555
+    uci commit dhcp
+    iptables -t nat -D PREROUTING -p tcp --dport 22 -j ACCEPT
+    iptables -t nat -A PREROUTING -s 192.168.0.0/16 -j ACCEPT
+    iptables -t nat -A PREROUTING -s 127.0.0.0/16 -j ACCEPT
+    iptables -t nat -D PREROUTING -p tcp -j REDIRECT --to-ports $REDIRPORT
+    return 0
+}
+
+restart () {
+    stop
+    sleep 2
+    start
+}
+
+boot() {
+    sleep 30
+    start
+}
